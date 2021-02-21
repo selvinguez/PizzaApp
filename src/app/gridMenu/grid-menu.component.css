@@ -1,0 +1,16 @@
+img {
+  width: 151px;
+  border-radius: 151px;
+  --box-shadow-color: #b1b1af;
+  box-shadow: 2px 7px 17px var(--box-shadow-color);
+  transition: 0.3s;
+}
+
+img:hover {
+  --box-shadow-color: #a75500;
+}
+
+div {
+  display: grid;
+  text-align: center;
+}
