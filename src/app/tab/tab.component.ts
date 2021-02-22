@@ -17,6 +17,7 @@ export class TabGroupComponent {
 
   ngOnInit(){
       this.productos = this.claseService.getProductos()
+      this.selectedTab = this.route.snapshot.params['index'];
   }
 }
 
