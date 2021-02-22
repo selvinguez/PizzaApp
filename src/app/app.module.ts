@@ -13,6 +13,17 @@ import { ProductosComponent } from './productos/productos.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTabsModule} from '@angular/material/tabs';
+import { TabGroupComponent } from './tab/tab.component';
+import {MatCardModule} from '@angular/material/card';
+import { CardComponent } from './card/card-component';
+import {MatBadgeModule} from '@angular/material/badge';
+import { BadgeIconComponent } from './badgeIcon/badge-icon-component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { GridMenu } from './gridMenu/grid-menu.component';
+import {ClaseService} from './shared/clase.service'
 
 @NgModule({
   declarations: [
@@ -21,16 +32,29 @@ import { LoginComponent } from './login/login.component';
     MenuComponent,
     HomeComponent,
     ProductosComponent,
-    LoginComponent
+    LoginComponent,
+    TabGroupComponent,
+    CardComponent,
+    BadgeIconComponent,
+    GridMenu
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SocialLoginModule,
  
-    HttpClientModule
+    HttpClientModule,
+    MatTabsModule,
+    MatCardModule,
+    MatIconModule,
+    MatBadgeModule,
+    MatGridListModule,
+    
+ 
+    BrowserAnimationsModule
   ],
   providers: [
+    ClaseService,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

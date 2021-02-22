@@ -23,12 +23,13 @@
             {{userLogged.name}}
           </a>
           </li>
-    </ul>
+      </ul>
       <img *ngIf="isLogged" src="{{userLogged.photoUrl}}" class="rounded-circle mr-3" style="width: 50px">
       <button *ngIf="!isLogged" class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="/login">
         <i class="fas fa-sign-in-alt fa-lg"></i> Iniciar Sesión</button>
         <button *ngIf="isLogged" class="btn btn-outline-danger my-2 my-sm-0" type="submit" (click)="logOut()">
           <i class="fas fa-sign-out-alt fa-lg"></i> Cerrar Sesión</button>
-
+          <mat-icon style="color:white;margin-left: 74%;margin-top: 9px;" matBadge="15" matBadgeColor="warn">shopping_cart</mat-icon>
     </div>
+
   </nav>

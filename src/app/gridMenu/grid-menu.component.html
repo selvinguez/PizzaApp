@@ -1,0 +1,12 @@
+<mat-grid-list cols="6" rowHeight="300px">
+  <mat-grid-tile
+      *ngFor="let tile of tiles"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+      [style.background]="tile.color">
+      <div>
+        <h1 class="mat-headline">{{tile.text}}</h1>
+        <a [routerLink]="['/categories', tile.index]"><img src={{tile.img}} /></a>
+      </div>
+  </mat-grid-tile>
+</mat-grid-list>
