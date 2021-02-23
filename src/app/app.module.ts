@@ -24,6 +24,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { GridMenu } from './gridMenu/grid-menu.component';
 import {ClaseService} from './shared/clase.service'
+import { loginService } from './login/login.service';
+import { FormsModule } from '@angular/forms';
+import { ToasterService } from './toaster.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,8 @@ import {ClaseService} from './shared/clase.service'
     TabGroupComponent,
     CardComponent,
     BadgeIconComponent,
-    GridMenu
+    GridMenu,
+    
   ],
   imports: [
     BrowserModule,
@@ -49,17 +53,19 @@ import {ClaseService} from './shared/clase.service'
     MatIconModule,
     MatBadgeModule,
     MatGridListModule,
-    
- 
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [
     ClaseService,
+    loginService,
+    ToasterService,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
         autoLogin: false,
         providers: [
+         // ToasterService,
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
@@ -72,7 +78,8 @@ import {ClaseService} from './shared/clase.service'
           }
         ]
       } as SocialAuthServiceConfig,
-    },   MenuComponent
+    },   MenuComponent,
+    
 
   ],
   bootstrap: [AppComponent]
