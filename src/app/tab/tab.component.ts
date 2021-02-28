@@ -14,9 +14,15 @@ export class TabGroupComponent {
   productos:any
   headers:any 
 
+  toggleCategory($event){
+    console.log($event.tab.textLabel)
+    this.productos = this.claseService.getProductosByCategory($event.tab.textLabel);
+  }
+
 
   ngOnInit(){
-      this.productos = this.claseService.getProductos()
+      const category = this.route.snapshot.params['category'];
+      this.productos = this.claseService.getProductosByCategory(category);
       this.selectedTab = this.route.snapshot.params['index'];
   }
 }

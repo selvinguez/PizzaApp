@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'lista', component: ProductosComponent},
-  {path: 'categories/:index', component: TabGroupComponent},
+  {path: 'categories/:index/:category', component: TabGroupComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'}
 
 
