@@ -60,6 +60,7 @@ import { ToasterService } from './toaster.service';
     ClaseService,
     loginService,
     ToasterService,
+    MenuComponent,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

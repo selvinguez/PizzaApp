@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SocialAuthService, SocialUser } from 'angularx-social-login';
+import { loginService } from '../login/login.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,9 +11,13 @@ import { SocialAuthService, SocialUser } from 'angularx-social-login';
 export class MenuComponent implements OnInit {
   userLogged: SocialUser;
   isLogged: boolean;
-  constructor(    private authService: SocialAuthService, private router: Router) { }
+  isAdmin: boolean;
+  isNormalLogged:boolean;
+  constructor(    private authService: SocialAuthService, private router: Router,public user:loginService) { }
 
   ngOnInit(): void {
+    this.isAdmin = this.user.getadmin2()
+    this.isNormalLogged = this.user.getLogged()
     this.authService.authState.subscribe(
       data => {
         this.userLogged = data;
@@ -21,9 +26,16 @@ export class MenuComponent implements OnInit {
     );
   }
 
+ 
   logOut(): void {
     this.authService.signOut()
       
+        this.router.navigate(['/login']);
+      
+    
+  }
+  NormallogOut(): void {
+        this.user.setLogged()
         this.router.navigate(['/login']);
       
     

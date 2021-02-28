@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
+import { MenuComponent } from '../menu/menu.component';
 import { ToasterService } from '../toaster.service';
 import { loginService } from './login.service';
 import { userLogin } from './users.module';
@@ -13,17 +14,21 @@ import { userLogin } from './users.module';
 export class LoginComponent implements OnInit {
 
   constructor(private authService: SocialAuthService,
-    private router: Router,private loginse: loginService, private tos : ToasterService) { }
+    private router: Router,private loginse: loginService, private tos : ToasterService,
+    private admin: MenuComponent) { }
   socialUser: SocialUser;
   userLogged: SocialUser;
   isLogged: boolean;
+  isAdmin: boolean;
  
   prod:any
   password
   Correo
  
   ngOnInit(): void {
+
     this.authService.authState.subscribe(
+
       data => {
         this.userLogged = data;
         this.isLogged = (this.userLogged != null );
@@ -35,12 +40,19 @@ export class LoginComponent implements OnInit {
     
      this.loginse.addUsers(data)
     
+    
 }
 loginu(data: userLogin):void{
+
   if(this.loginse.getByInfoVerificacion(data.Correo,data.password)){
-    console.log(data)
-    data =>{
-    this.isLogged = false}
+    const user =this.loginse.getByInfoId(data.Correo)
+    
+      this.isLogged = true;
+      this.loginse.setAdmin(user)
+      
+      this.loginse.setLogged()
+
+  
     this.router.navigate(['/']);
     this.tos.success("Bienvenido " + data.Correo)
   }else{
@@ -54,6 +66,7 @@ loginu(data: userLogin):void{
         console.log(data)
         this.socialUser = data;
         this.isLogged = true;
+        this.loginse.setLogged()
         this.router.navigate(['/']);
       }
     );
