@@ -1,21 +1,33 @@
 <app-menu></app-menu>
-<mat-tab-group headerPosition="above" mat-align-tabs="center" [selectedIndex]="selectedTab">
+<mat-tab-group headerPosition="above" mat-align-tabs="center" [selectedIndex]="selectedTab" (selectedTabChange)="toggleCategory($event)">
   <mat-tab label="Boxes">
-    <card-component  *ngFor="let product of productos"  [product]="product"></card-component>
+    <mat-grid-list cols="5" rowHeight="400px" style="margin: 0px 23px;"> 
+      <mat-grid-tile *ngFor="let product of productos"><card-component [product]="product"></card-component></mat-grid-tile>
+    </mat-grid-list>
   </mat-tab>
   <mat-tab label="Entradas">
-    <card-component  *ngFor="let product of productos"  [product]="product"></card-component>
+    <mat-grid-list cols="5" rowHeight="400px">
+      <mat-grid-tile *ngFor="let product of productos"><card-component [product]="product"></card-component></mat-grid-tile>
+    </mat-grid-list>
   </mat-tab>
-  <mat-tab label="Hot Packs">
-    <card-component  *ngFor="let product of productos"  [product]="product"></card-component>
+  <mat-tab label="Calzoné">
+    <mat-grid-list cols="5" rowHeight="400px">
+      <mat-grid-tile *ngFor="let product of productos"><card-component [product]="product"></card-component></mat-grid-tile>
+    </mat-grid-list>
   </mat-tab>
   <mat-tab label="Llevar">
-    <card-component  *ngFor="let product of productos"  [product]="product"></card-component>
+    <mat-grid-list cols="5" rowHeight="400px">
+      <mat-grid-tile *ngFor="let product of productos"><card-component [product]="product"></card-component></mat-grid-tile>
+    </mat-grid-list>
   </mat-tab>
   <mat-tab label="Pastas">
-    <card-component  *ngFor="let product of productos"  [product]="product"></card-component>
+    <mat-grid-list cols="5" rowHeight="400px">
+      <mat-grid-tile *ngFor="let product of productos"><card-component [product]="product"></card-component></mat-grid-tile>
+    </mat-grid-list>
   </mat-tab>
   <mat-tab label="Pizza">
-    <card-component  *ngFor="let product of productos"  [product]="product"></card-component>
+    <mat-grid-list cols="5" rowHeight="400px">
+      <mat-grid-tile *ngFor="let product of productos"><card-component [product]="product"></card-component></mat-grid-tile>
+    </mat-grid-list>
   </mat-tab>
 </mat-tab-group>
