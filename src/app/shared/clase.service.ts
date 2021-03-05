@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { ProductosComponent } from "../productos/productos.component";
 
 @Injectable()
 export class ClaseService
@@ -13,10 +14,32 @@ export class ClaseService
       })
       return CATEGORIAS;
   }
+  getProductoById(codigo: number){
+    return PRODUCTOS.find(p => p.id === codigo);
+ }
+  addProducto(producto){
+    if(!PRODUCTOS.find(p => p.title === producto.title )){
+      PRODUCTOS.push(producto);
+      alert(`Producto ${producto.title} agregado`);
+  }else{
+      alert(`El producto con ID ${producto.title} ya existe`);
+  }
+  }
+
+  editProducto(producto){
+    
+    PRODUCTOS[producto.id] = producto;
+   }   
+
+   getCountid(){
+     return PRODUCTOS.length
+   }
+
 }
 
 const PRODUCTOS= [
   {
+    id:0,
     title:"Combo Familiar", 
     description: "Pizza gigante de un ingrediente,24 jugosas pechurricas y 16oz de nuestras exquisitas papas wedges!", 
     price: 500, 
@@ -24,6 +47,7 @@ const PRODUCTOS= [
     category:'Boxes'
   },
   {
+    id:1,
     title:"Combo GLASGOW",
     description: "Pizza gigante de un ingrediente,24 picantes hut wings,6 jugosas pechurricas y 16oz de nuestras exquisitas papas wedges!",
     price: 599,
@@ -31,6 +55,7 @@ const PRODUCTOS= [
     category:'Boxes'
   },
   {
+    id:2,
     title:"Combo Muchie",
     description: "Pizza gigante de un ingrediente,12 picantes hut wings,12 jugosas pechurricas y 16oz de nuestras exquisitas papas wedges",
     price: 549,
@@ -38,6 +63,7 @@ const PRODUCTOS= [
     category:'Boxes'
   },
   {
+    id:3,
     title:"Pan De Ajo Supremo",
     description: "Pan de ajo con capa de queso mozzarella.",
     price: 199,
@@ -45,6 +71,7 @@ const PRODUCTOS= [
     category:'Entradas'
   },
   {
+    id:4,
     title:"Hot Wings",
     description: "Nuestras tradicionales alitas de pollo con sabor a salsa buffalo,acompañadas con aderezo ranchero.",
     price: 149,
@@ -52,6 +79,7 @@ const PRODUCTOS= [
     category:'Entradas'
   },
   {
+    id:5,
     title:"Pechurricas",
     description: "Crujientes pechurricas de pollo acompañadas de salsa ranchera.",
     price: 229,
@@ -59,6 +87,7 @@ const PRODUCTOS= [
     category:'Entradas'
   },
   {
+    id:6,
     title:"Papas Wedges",
     description: "Gajos de papas con leve empanizado.",
     price: 80,
@@ -66,6 +95,7 @@ const PRODUCTOS= [
     category:'Entradas'
   },
   {
+    id:7,
     title:"Pasta Alfredo",
     description: "Delicioso Linguinni con pollo y la mejor salsa Alfredo.",
     price: 199,
@@ -73,6 +103,7 @@ const PRODUCTOS= [
     category:'Pastas'
   },
   {
+    id:8,
     title:"Pasta Tagliatelle",
     description: "La mejor pasta Tagliatelle.",
     price: 199,
@@ -80,6 +111,7 @@ const PRODUCTOS= [
     category:'Pastas'
   },
   {
+    id:9,
     title:"4 Estaciones",
     description: "Cuatro diferentes especialidades en una sola pizza: súper suprema, canadiense, pepperoni y jamón.",
     price: 319,
@@ -87,6 +119,7 @@ const PRODUCTOS= [
     category:'Pizza'
   },
   {
+    id:10,
     title:"Super Suprema",
     description: "Elaborada con pepperoni, carne de res y cerdo, salchicha italiana, jamón, champiñones, aceitunas, cebolla y chile verde.",
     price: 280,
@@ -94,6 +127,7 @@ const PRODUCTOS= [
     category:'Pizza'
   },
   {
+    id:11,
     title:"Canadiense",
     description: "Elaborada con pepperoni, jamón, carne de res y cerdo, salchicha italiana y bacon bits.",
     price: 280,
@@ -101,6 +135,7 @@ const PRODUCTOS= [
     category:'Pizza'
   },
   {
+    id:12,
     title:"Pepperoni O Jamón Lovers",
     description: "Pepperoni o jamón en abundancia, queso 100% mozzarella.",
     price: 250,
@@ -108,6 +143,7 @@ const PRODUCTOS= [
     category:'Pizza'
   },
   {
+    id:13,
     title:"Calzone Supremo",
     description: "Combinación de carne de res y cerdo, pepperoni, champiñones, chile verde, cebolla y salsa barbacoa.",
     price: 115,
@@ -115,6 +151,7 @@ const PRODUCTOS= [
     category:'Calzoné'
   },
   {
+    id:14,
     title:"Calzone Meat",
     description: "Combinación de jamón, carne de res y cerdo, queso mozzarella y salsa barbacoa.",
     price: 115,
@@ -122,18 +159,14 @@ const PRODUCTOS= [
     category:'Calzoné'
   },
   {
-    title:"Calzone Meat",
-    description: "Combinación de jamón, carne de res y cerdo, queso mozzarella y salsa barbacoa.",
-    price: 115,
-    imageURL: 'https://www.pizzahutonline.hn/Imagenes/CATEGORIAS/CALZONES/CALZONE%203.png',
-    category:'Calzoné'
-  },{
+    id:15,
     title:"Canadiense",
     description: "Elaborada con pepperoni, jamón, carne de res y cerdo, salchicha italiana y bacon bits.",
     price: 280,
     imageURL: 'https://www.pizzahutonline.hn/Imagenes/CATEGORIAS/PIZZAS/CANADIENSE.jpg',
     category:'Llevar'
   },{
+    id:16,
     title:"Combo Familiar", 
     description: "Pizza gigante de un ingrediente,24 jugosas pechurricas y 16oz de nuestras exquisitas papas wedges!", 
     price: 500, 
@@ -141,6 +174,7 @@ const PRODUCTOS= [
     category:'Llevar'
   },
   {
+    id:17,
     title:"Pan De Ajo Supremo",
     description: "Pan de ajo con capa de queso mozzarella.",
     price: 199,

@@ -49,10 +49,9 @@ loginu(data: userLogin):void{
     
       this.isLogged = true;
       this.loginse.setAdmin(user)
-      
       this.loginse.setLogged()
+      
 
-  
     this.router.navigate(['/']);
     this.tos.success("Bienvenido " + data.Correo)
   }else{
@@ -66,7 +65,7 @@ loginu(data: userLogin):void{
         console.log(data)
         this.socialUser = data;
         this.isLogged = true;
-        this.loginse.setLogged()
+        
         this.router.navigate(['/']);
       }
     );
@@ -78,6 +77,7 @@ loginu(data: userLogin):void{
         console.log(data)
         this.socialUser = data;
         this.isLogged = true;
+     
         this.router.navigate(['/']);
       }
     );

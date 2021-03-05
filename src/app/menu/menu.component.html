@@ -10,10 +10,15 @@
           <a class="nav-link" routerLink="/">
             <i class="fas fa-home"></i> Inicio<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item disabled" >
+        <li *ngIf="isAdmin && isNormalLogged " class="nav-item disabled" >
           <a class="nav-link" routerLink="/lista" >
             <i class="fas fa-list"></i> Lista   </a>
           </li>
+           
+      <li *ngIf="isAdmin && isNormalLogged " class="nav-item disabled" >
+        <a class="nav-link" routerLink="/CrearProductos" >
+          <i class="fas fa-pizza-slice"></i> Crear Producto </a>
+        </li>
 
       </ul>
 
@@ -25,10 +30,9 @@
           </li>
       </ul>
       
+     
       
-        <button *ngIf="isAdmin && isNormalLogged " class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="/login">
-          <i class="fas fa-sign-in-alt fa-lg"></i> Crear Producto</button>
-      
+
       <img *ngIf="isLogged " src="{{userLogged?.photoUrl}}" class="rounded-circle mr-3" style="width: 50px">
       <button *ngIf="!isLogged && !isNormalLogged" class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="/login">
         <i class="fas fa-sign-in-alt fa-lg"></i> Iniciar Sesión</button>
