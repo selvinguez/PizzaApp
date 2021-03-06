@@ -18,6 +18,7 @@ export class MenuComponent implements OnInit {
 
   constructor(    private authService: SocialAuthService, private router: Router,public user:loginService, public ClaseService:ClaseService) { }
 
+
   ngOnInit(): void {
     this.isAdmin = this.user.getadmin2()
     this.isNormalLogged = this.user.getLogged()
@@ -38,10 +39,10 @@ export class MenuComponent implements OnInit {
       
     
   }
+  
   NormallogOut(): void {
         this.user.setLogged()
         this.router.navigate(['/login']);
-      
     
   }
 

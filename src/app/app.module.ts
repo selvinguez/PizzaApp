@@ -25,8 +25,12 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { GridMenu } from './gridMenu/grid-menu.component';
 import {ClaseService} from './shared/clase.service'
 import { loginService } from './login/login.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToasterService } from './toaster.service';
+import { CrearProductoComponent} from './CrearProducto/crearProducto.components';
+import { ClaseRouteDeactivator } from './CrearProducto/desactivator.components';
+import { ProductoThumbnailComponent } from './productos/producto-thumnail.components';
+import { EditarProductoComponent } from './editarProducto/editarProducto.components';
 
 @NgModule({
   declarations: [
@@ -40,13 +44,19 @@ import { ToasterService } from './toaster.service';
     CardComponent,
     BadgeIconComponent,
     GridMenu,
+   CrearProductoComponent,
+   ProductoThumbnailComponent,
+   EditarProductoComponent
+  
+
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SocialLoginModule,
- 
+    ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     MatTabsModule,
     MatCardModule,
@@ -54,13 +64,16 @@ import { ToasterService } from './toaster.service';
     MatBadgeModule,
     MatGridListModule,
     BrowserAnimationsModule,
-    FormsModule
+    
+   
+   
   ],
   providers: [
     ClaseService,
     loginService,
     ToasterService,
     MenuComponent,
+    ClaseRouteDeactivator,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
