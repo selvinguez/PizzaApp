@@ -6,14 +6,27 @@ export class ClaseService
     getProductos(){
         return PRODUCTOS;
     }
+    
     getProductosByCategory(category){
       const CATEGORIAS = []
       PRODUCTOS.map(producto=>{
         (producto.category === category)?CATEGORIAS.push(producto):null
       })
       return CATEGORIAS;
-  }
+    }
+
+    getCart(){
+      return CART;
+    }
+
+    getCartLength(){
+      return CART.length;
+    }
 }
+
+const CART= [
+  
+]
 
 const PRODUCTOS= [
   {
