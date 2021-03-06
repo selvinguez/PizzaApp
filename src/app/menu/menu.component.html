@@ -40,7 +40,10 @@
               <i class="fas fa-sign-out-alt fa-lg"></i> Cerrar Sesión</button>
           </div>
           <div class="col-1" style="display: flex; align-items: center; justify-content: flex-end">
-                <mat-icon style="color: white;margin-top: 8px;margin-right: 10px;" [matBadge]="cartLength" matBadgeColor="warn">shopping_cart</mat-icon>
+            <a class="nav-link" routerLink="/checkout" >
+              <mat-icon style="color: white;margin-top: 8px;margin-right: 10px;" [matBadge]="cartLength" matBadgeColor="warn">shopping_cart</mat-icon>
+            </a>
+                
           </div>
         </div>
       </div> 
