@@ -1,4 +1,5 @@
-import {ChangeDetectorRef, Component, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import { Router } from '@angular/router';
 import { ClaseService } from "../shared/clase.service";
 
 /**
@@ -11,10 +12,11 @@ import { ClaseService } from "../shared/clase.service";
 })
 export class CardComponent {
   @Input() product:any
-  constructor(public ClaseService:ClaseService) {
+  constructor(public ClaseService:ClaseService,private router: Router) {
   }
 
   addToCart(): void {
     this.ClaseService.addToCart(this.product);
+    this.router.navigate(['/'])
   }
 }
