@@ -1,19 +1,22 @@
+import { style } from "@angular/animations";
 import { Injectable } from "@angular/core";
 import { ProductosComponent } from "../productos/productos.component";
+import { ToasterService } from "../toaster.service";
+declare let toastr;
 
 @Injectable()
 export class ClaseService
 {
-  getProductos(){
-      return PRODUCTOS;
-  }
-  
-  getProductosByCategory(category){
-    const CATEGORIAS = []
-    PRODUCTOS.map(producto=>{
-      (producto.category === category)?CATEGORIAS.push(producto):null
-    })
-    return CATEGORIAS;
+ 
+    getProductos(){
+        return PRODUCTOS;
+    }
+    getProductosByCategory(category){
+      const CATEGORIAS = []
+      PRODUCTOS.map(producto=>{
+        (producto.category === category)?CATEGORIAS.push(producto):null
+      })
+      return CATEGORIAS;
   }
 
   getProductoById(codigo: number){
@@ -23,13 +26,14 @@ export class ClaseService
   addProducto(producto){
     if(!PRODUCTOS.find(p => p.title === producto.title )){
       PRODUCTOS.push(producto);
-      alert(`Producto ${producto.title} agregado`);
-    }else{
-        alert(`El producto con ID ${producto.title} ya existe`);
-    }
+      toastr.success(`Producto ${producto.title} agregado`);
+  }else{
+    toastr.success(`El producto con title  ${producto.title} ya existe`);
+  }
   }
 
   editProducto(producto){
+    toastr.success(`Producto ${producto.title} Modificado`)
     
     PRODUCTOS[producto.id] = producto;
    }   

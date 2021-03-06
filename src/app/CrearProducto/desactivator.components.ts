@@ -11,7 +11,8 @@ export class ClaseRouteDeactivator implements CanDeactivate<CrearProductoCompone
         RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
         
             if(component.isDirty){
-                return window.confirm('No has salvado esta clase, ¿esta seguro que desea continuar?')
+                
+                return window.confirm('No has salvado este Producto, ¿esta seguro que desea continuar?')
             }
 
             return true;
