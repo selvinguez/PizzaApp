@@ -9,4 +9,7 @@
       L. {{product.price}}
     </p>
   </mat-card-content>
+  <mat-card-actions>
+    <button class="btn btn-primary" mat-button (click)="addToCart()" [routerLink]="['/categories', 1, 'Entradas']">ADD TO CART</button>
+  </mat-card-actions>
 </mat-card>

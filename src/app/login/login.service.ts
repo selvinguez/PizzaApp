@@ -18,7 +18,6 @@ export class loginService
     addUsers(data:userLogin ){
         if(!this.getByInfoId(data.Correo) && !(data.Correo === null) &&  !(data.password === null) ){
             USERS.push(data)
-            console.log(USERS)
             this.msg.success("Usuario " +data.Correo + " Creado")
         }else if((data.Correo === null) && (data.password ===null)){
 

@@ -1,4 +1,5 @@
-import {Component, Input} from '@angular/core';
+import {ChangeDetectorRef, Component, Input} from '@angular/core';
+import { ClaseService } from "../shared/clase.service";
 
 /**
  * @title Card with multiple sections
@@ -10,4 +11,10 @@ import {Component, Input} from '@angular/core';
 })
 export class CardComponent {
   @Input() product:any
+  constructor(public ClaseService:ClaseService) {
+  }
+
+  addToCart(): void {
+    this.ClaseService.addToCart(this.product);
+  }
 }

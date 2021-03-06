@@ -22,6 +22,10 @@ export class ClaseService
     getCartLength(){
       return CART.length;
     }
+
+    addToCart(producto){
+      CART.push(producto);
+    }
 }
 
 const CART= [
