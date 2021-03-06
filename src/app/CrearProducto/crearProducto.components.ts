@@ -17,7 +17,7 @@ import { ClaseService } from "../shared/clase.service"
 export class CrearProductoComponent
 {
    
-    enable
+    isEnabled:FormControl
     title: FormControl
     description : FormControl
     price : FormControl
@@ -48,13 +48,15 @@ export class CrearProductoComponent
           Validators.required, 
        
         ])
+        this.isEnabled = new FormControl()
         this.profileForm = new FormGroup({
           title: this.title,
           description: this.description,
           price: this.price,
           imageURL: this.imageURL,
-          category: this.category
+          category: this.category,
           
+          isEnabled: this.isEnabled
       })
       
     }

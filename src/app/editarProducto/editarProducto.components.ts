@@ -18,7 +18,7 @@ export class EditarProductoComponent
 {
    
     Product
-    enable
+    isEnabled:FormControl
     title: FormControl
     description : FormControl
     price : FormControl
@@ -50,13 +50,14 @@ export class EditarProductoComponent
           Validators.required, 
        
         ])
+        this.isEnabled = new FormControl(this.Product.isEnabled,[])
         this.profileForm2 = new FormGroup({
           title: this.title,
           description: this.description,
           price: this.price,
           imageURL: this.imageURL,
-          category: this.category
-          
+          category: this.category,
+          isEnabled :this.isEnabled
       })
       
     }
@@ -68,9 +69,10 @@ export class EditarProductoComponent
       this.Product.price = data.price
       this.Product.imageURL = data.imageURL
       this.Product.category = data.category
+      this.Product.isEnabled = data.isEnabled
       this.claseService.editProducto(this.Product);
       this.isDirty = false;
-      console.log(this.claseService.getCountid())
+      console.log(this.Product)
     }
 
     cancel(){
