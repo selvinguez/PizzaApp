@@ -8,7 +8,7 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
             <h2>{{clase.title}}</h2>
             <img class="rounded-circle" width="250" height="150" src="{{clase.imageURL}}" alt="{{clase.descripcion}}" >
             <div><span>Precio: {{clase.price}}</span></div>
-            <button  class="btn btn-dark"  [routerLink]="['/EditarProductos', clase.id ]" >edit</button>
+            <button  class="btn btn-light"  [routerLink]="['/EditarProductos', clase.id ]" >Edit</button>
 
         </div>
     `,

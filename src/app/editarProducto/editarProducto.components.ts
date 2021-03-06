@@ -18,6 +18,7 @@ export class EditarProductoComponent
 {
    
     Product
+    enable
     title: FormControl
     description : FormControl
     price : FormControl
