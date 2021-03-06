@@ -15,7 +15,6 @@ export class TabGroupComponent {
   headers:any 
 
   toggleCategory($event){
-    console.log($event.tab.textLabel)
     this.productos = this.claseService.getProductosByCategory($event.tab.textLabel);
   }
 

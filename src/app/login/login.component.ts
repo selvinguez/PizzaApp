@@ -62,7 +62,6 @@ loginu(data: userLogin):void{
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
       data =>{
-        console.log(data)
         this.socialUser = data;
         this.isLogged = true;
         
@@ -74,7 +73,6 @@ loginu(data: userLogin):void{
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
       data =>{
-        console.log(data)
         this.socialUser = data;
         this.isLogged = true;
      

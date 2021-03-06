@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SocialAuthService, SocialUser } from 'angularx-social-login';
+import { ClaseService } from "../shared/clase.service";
 import { loginService } from '../login/login.service';
 
 @Component({
@@ -13,12 +14,15 @@ export class MenuComponent implements OnInit {
   isLogged: boolean;
   isAdmin: boolean;
   isNormalLogged:boolean;
-  constructor(    private authService: SocialAuthService, private router: Router,public user:loginService) { }
+  cartLength:number;
+
+  constructor(    private authService: SocialAuthService, private router: Router,public user:loginService, public ClaseService:ClaseService) { }
 
 
   ngOnInit(): void {
     this.isAdmin = this.user.getadmin2()
     this.isNormalLogged = this.user.getLogged()
+    this.cartLength = this.ClaseService.getCartLength()
     this.authService.authState.subscribe(
       data => {
         this.userLogged = data;
