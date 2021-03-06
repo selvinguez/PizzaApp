@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProductosComponent } from './productos/productos.component';
 import { TabGroupComponent } from './tab/tab.component';
-
+import {CheckoutComponent} from './checkout/checkout.component'
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,6 +16,7 @@ const routes: Routes = [
   {path: 'EditarProductos/:myid',component:EditarProductoComponent,canDeactivate: [ClaseRouteDeactivator]},
   {path: 'lista', component: ProductosComponent},
   {path: 'categories/:index/:category', component: TabGroupComponent},
+  {path: 'checkout', component: CheckoutComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'}
 
 
