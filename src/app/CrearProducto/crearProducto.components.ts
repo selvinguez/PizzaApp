@@ -17,7 +17,7 @@ import { ClaseService } from "../shared/clase.service"
 export class CrearProductoComponent
 {
    
-
+    enable
     title: FormControl
     description : FormControl
     price : FormControl

@@ -5,6 +5,7 @@ declare let toastr;
 export class ToasterService{
     success(message: string,title?: string){
         toastr.success(message,title);
+        
     }
 
 }

@@ -33,6 +33,10 @@
             <em *ngIf="category.invalid && category.touched && category?.errors.required">Campo Requerido</em>
             <input formControlName="category" name="category" id="category" class="form-control" multiple  list="drawfemails"/>
           </div>
+          <div class ="form-group">
+            <label for="enable">Disponible:   </label>     
+            <input type="checkbox" class="form-check-input" formControName = "enable" name="enable" id="enable" > 
+          </div>
           <datalist multiple id="drawfemails" >
             <option>Boxes</option>
             <option>Entradas</option>

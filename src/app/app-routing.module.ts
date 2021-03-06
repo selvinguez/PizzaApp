@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'CrearProductos', component: CrearProductoComponent,canDeactivate: [ClaseRouteDeactivator]},
-  {path: 'EditarProductos/:myid',component:EditarProductoComponent},
+  {path: 'EditarProductos/:myid',component:EditarProductoComponent,canDeactivate: [ClaseRouteDeactivator]},
   {path: 'lista', component: ProductosComponent},
   {path: 'categories/:index/:category', component: TabGroupComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'}
