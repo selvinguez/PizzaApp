@@ -63,7 +63,8 @@ const PRODUCTOS= [
     description: "Pizza gigante de un ingrediente,24 jugosas pechurricas y 16oz de nuestras exquisitas papas wedges!", 
     price: 500, 
     imageURL: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Munchy_Box.jpg', 
-    category:'Boxes'
+    category:'Boxes',
+    isEnabled: true
   },
   {
     id:1,
@@ -71,7 +72,8 @@ const PRODUCTOS= [
     description: "Pizza gigante de un ingrediente,24 picantes hut wings,6 jugosas pechurricas y 16oz de nuestras exquisitas papas wedges!",
     price: 599,
     imageURL: 'https://farm3.static.flickr.com/2276/1918684402_1dd74e866d.jpg?v=0',
-    category:'Boxes'
+    category:'Boxes',
+    isEnabled: true
   },
   {
     id:2,
@@ -79,7 +81,8 @@ const PRODUCTOS= [
     description: "Pizza gigante de un ingrediente,12 picantes hut wings,12 jugosas pechurricas y 16oz de nuestras exquisitas papas wedges",
     price: 549,
     imageURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk1R2-cLcvcoB1JZc2FWtIXbKaNxYcbu7szA&usqp=CAU',
-    category:'Boxes'
+    category:'Boxes',
+    isEnabled: true
   },
   {
     id:3,
@@ -87,7 +90,8 @@ const PRODUCTOS= [
     description: "Pan de ajo con capa de queso mozzarella.",
     price: 199,
     imageURL: 'https://www.pizzahutonline.hn/Imagenes/CATEGORIAS/ENTRADAS/PAN%20DE%20AJO.png',
-    category:'Entradas'
+    category:'Entradas',
+    isEnabled: true
   },
   {
     id:4,
@@ -95,7 +99,8 @@ const PRODUCTOS= [
     description: "Nuestras tradicionales alitas de pollo con sabor a salsa buffalo,acompañadas con aderezo ranchero.",
     price: 149,
     imageURL: 'https://www.pizzahutonline.hn/Imagenes/CATEGORIAS/ENTRADAS/HUT%20WINGS.png',
-    category:'Entradas'
+    category:'Entradas',
+    isEnabled: true
   },
   {
     id:5,
@@ -103,7 +108,8 @@ const PRODUCTOS= [
     description: "Crujientes pechurricas de pollo acompañadas de salsa ranchera.",
     price: 229,
     imageURL: 'https://www.pizzahutonline.hn/Imagenes/CATEGORIAS/ENTRADAS/PECHURRRICAS.png',
-    category:'Entradas'
+    category:'Entradas',
+    isEnabled: true
   },
   {
     id:6,
@@ -111,7 +117,8 @@ const PRODUCTOS= [
     description: "Gajos de papas con leve empanizado.",
     price: 80,
     imageURL: 'https://www.pizzahutonline.hn/Imagenes/CATEGORIAS/ENTRADAS/PAPAS%20WEDGES.png',
-    category:'Entradas'
+    category:'Entradas',
+    isEnabled: true
   },
   {
     id:7,
@@ -119,7 +126,8 @@ const PRODUCTOS= [
     description: "Delicioso Linguinni con pollo y la mejor salsa Alfredo.",
     price: 199,
     imageURL: 'https://www.superama.com.mx/views/micrositio/recetas/images/comidaitaliana/pastaalfredo/Web_fotoreceta.jpg',
-    category:'Pastas'
+    category:'Pastas',
+    isEnabled: true
   },
   {
     id:8,
@@ -127,7 +135,8 @@ const PRODUCTOS= [
     description: "La mejor pasta Tagliatelle.",
     price: 199,
     imageURL: 'https://i.pinimg.com/originals/79/80/1d/79801df4ae85acf912e41f2314ad74fd.jpg',
-    category:'Pastas'
+    category:'Pastas',
+    isEnabled: true
   },
   {
     id:9,
@@ -135,7 +144,8 @@ const PRODUCTOS= [
     description: "Cuatro diferentes especialidades en una sola pizza: súper suprema, canadiense, pepperoni y jamón.",
     price: 319,
     imageURL: 'https://www.pizzahutonline.hn/Imagenes/CATEGORIAS/PIZZAS/001.jpg',
-    category:'Pizza'
+    category:'Pizza',
+    isEnabled: true
   },
   {
     id:10,
@@ -143,7 +153,8 @@ const PRODUCTOS= [
     description: "Elaborada con pepperoni, carne de res y cerdo, salchicha italiana, jamón, champiñones, aceitunas, cebolla y chile verde.",
     price: 280,
     imageURL: 'https://www.pizzahutonline.hn/Imagenes/CATEGORIAS/PIZZAS/SUPER%20SUPREMA.jpg',
-    category:'Pizza'
+    category:'Pizza',
+    isEnabled: true
   },
   {
     id:11,
@@ -151,7 +162,8 @@ const PRODUCTOS= [
     description: "Elaborada con pepperoni, jamón, carne de res y cerdo, salchicha italiana y bacon bits.",
     price: 280,
     imageURL: 'https://www.pizzahutonline.hn/Imagenes/CATEGORIAS/PIZZAS/CANADIENSE.jpg',
-    category:'Pizza'
+    category:'Pizza',
+    isEnabled: true
   },
   {
     id:12,
@@ -159,7 +171,8 @@ const PRODUCTOS= [
     description: "Pepperoni o jamón en abundancia, queso 100% mozzarella.",
     price: 250,
     imageURL: 'https://www.pizzahutonline.hn/Imagenes/CATEGORIAS/PIZZAS/PEPPERONI%20O%20JAMON%20LOVERS.jpg',
-    category:'Pizza'
+    category:'Pizza',
+    isEnabled: true
   },
   {
     id:13,
@@ -167,7 +180,8 @@ const PRODUCTOS= [
     description: "Combinación de carne de res y cerdo, pepperoni, champiñones, chile verde, cebolla y salsa barbacoa.",
     price: 115,
     imageURL: 'https://www.pizzahutonline.hn/Imagenes/CATEGORIAS/CALZONES/CALZONE%20SUPREMO.png',
-    category:'Calzoné'
+    category:'Calzoné',
+    isEnabled: true
   },
   {
     id:14,
@@ -175,7 +189,8 @@ const PRODUCTOS= [
     description: "Combinación de jamón, carne de res y cerdo, queso mozzarella y salsa barbacoa.",
     price: 115,
     imageURL: 'https://www.pizzahutonline.hn/Imagenes/CATEGORIAS/CALZONES/CALZONE%203.png',
-    category:'Calzoné'
+    category:'Calzoné',
+    isEnabled: true
   },
   {
     id:15,
@@ -183,14 +198,16 @@ const PRODUCTOS= [
     description: "Elaborada con pepperoni, jamón, carne de res y cerdo, salchicha italiana y bacon bits.",
     price: 280,
     imageURL: 'https://www.pizzahutonline.hn/Imagenes/CATEGORIAS/PIZZAS/CANADIENSE.jpg',
-    category:'Llevar'
+    category:'Llevar',
+    isEnabled: true
   },{
     id:16,
     title:"Combo Familiar", 
     description: "Pizza gigante de un ingrediente,24 jugosas pechurricas y 16oz de nuestras exquisitas papas wedges!", 
     price: 500, 
     imageURL: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Munchy_Box.jpg', 
-    category:'Llevar'
+    category:'Llevar',
+    isEnabled: true
   },
   {
     id:17,
@@ -198,6 +215,7 @@ const PRODUCTOS= [
     description: "Pan de ajo con capa de queso mozzarella.",
     price: 199,
     imageURL: 'https://www.pizzahutonline.hn/Imagenes/CATEGORIAS/ENTRADAS/PAN%20DE%20AJO.png',
-    category:'Llevar'
+    category:'Llevar',
+    isEnabled: true
   },
 ]
