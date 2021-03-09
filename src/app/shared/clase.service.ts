@@ -54,6 +54,10 @@ export class ClaseService
     CART.push(producto);
   }
 
+  deleteFromCartById(index){
+    CART.splice(index, 1);
+  }
+
 }
 
 const CART= [
