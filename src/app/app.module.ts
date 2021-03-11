@@ -32,6 +32,7 @@ import { ClaseRouteDeactivator } from './CrearProducto/desactivator.components';
 import { ProductoThumbnailComponent } from './productos/producto-thumnail.components';
 import { EditarProductoComponent } from './editarProducto/editarProducto.components';
 import {CheckoutComponent} from './checkout/checkout.component'
+import { ClaseListResolver } from './shared/claseresolver.service';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import {CheckoutComponent} from './checkout/checkout.component'
     ToasterService,
     MenuComponent,
     ClaseRouteDeactivator,
+    ClaseListResolver,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

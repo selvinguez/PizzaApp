@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Product } from '../shared/clase.module';
 import { ClaseService } from '../shared/clase.service';
 
 
@@ -24,20 +25,19 @@ import { ClaseService } from '../shared/clase.service';
 })
 export class ProductosComponent implements OnInit 
 {
-  claseList
+  claseList:Product[]
 
   constructor( private producto:ClaseService,
       private route: ActivatedRoute) {
       
   }
+ 
 
-  //hooks
+  
   ngOnInit(){
-      // this.claseService.getClases().subscribe(clases=> 
-      //     {
-      //         this.claseList =clases;
-      //     });
-      this.claseList = this.producto.getProductos()
+     
+      this.claseList =  this.route.snapshot.data['productos']
+      console.log(this.claseList)
   }
 
   
