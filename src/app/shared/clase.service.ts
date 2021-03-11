@@ -3,20 +3,30 @@ import { Injectable } from "@angular/core";
 import { ProductosComponent } from "../productos/productos.component";
 import { ToasterService } from "../toaster.service";
 declare let toastr;
-
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable, Subject } from "rxjs";
+import { Product } from "./clase.module";
+import { map } from "rxjs/operators";
 @Injectable()
 export class ClaseService
 {
- 
-    getProductos(){
-        return PRODUCTOS;
+  constructor(private http: HttpClient) {
+                
+  }
+    getProductos(): Observable< Product[]>{
+        return this.http.get< Product[]>('http://localhost:3000/productos');
     }
     getProductosByCategory(category){
+      var lista
+      const productos = this.getProductos().subscribe(products => {
+       lista= products as Product[]
+    })
       const CATEGORIAS = []
-      PRODUCTOS.map(producto=>{
-        (producto.category === category)?CATEGORIAS.push(producto):null
-      })
-      return CATEGORIAS;
+   
+     // productos.(producto=>{
+       // (producto. === category)?CATEGORIAS.push(producto):null
+      //})
+      return CATEGORIAS
   }
 
   getProductoById(codigo: number){

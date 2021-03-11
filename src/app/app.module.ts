@@ -31,6 +31,7 @@ import { CrearProductoComponent} from './CrearProducto/crearProducto.components'
 import { ClaseRouteDeactivator } from './CrearProducto/desactivator.components';
 import { ProductoThumbnailComponent } from './productos/producto-thumnail.components';
 import { EditarProductoComponent } from './editarProducto/editarProducto.components';
+import { ClaseListResolver } from './shared/claseresolver.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { EditarProductoComponent } from './editarProducto/editarProducto.compone
     GridMenu,
    CrearProductoComponent,
    ProductoThumbnailComponent,
-   EditarProductoComponent
+   EditarProductoComponent,
+   
   
 
     
@@ -74,6 +76,7 @@ import { EditarProductoComponent } from './editarProducto/editarProducto.compone
     ToasterService,
     MenuComponent,
     ClaseRouteDeactivator,
+    ClaseListResolver,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
