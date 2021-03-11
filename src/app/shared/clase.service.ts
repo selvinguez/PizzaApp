@@ -16,22 +16,14 @@ export class ClaseService
     getProductos(): Observable< Product[]>{
         return this.http.get< Product[]>('http://localhost:3000/productos');
     }
-    getProductosByCategory(category){
-      var lista
-      const productos = this.getProductos().subscribe(products => {
-       lista= products as Product[]
-    })
-      const CATEGORIAS = []
-   
-     // productos.(producto=>{
-       // (producto. === category)?CATEGORIAS.push(producto):null
-      //})
-      return CATEGORIAS
-  }
+    getProductosByCategory(category): Observable< Product[]>{
+      console.log(category)
+      return this.http.get< Product[]>(`http://localhost:3000/category/`+category);
+    }
 
-  getProductoById(codigo: number){
-    return PRODUCTOS.find(p => p.id === codigo);
- }
+    getProductoById(codigo: number){
+      return PRODUCTOS.find(p => p.id === codigo);
+    }
 
   addProducto(producto){
     if(!PRODUCTOS.find(p => p.title === producto.title )){
@@ -62,6 +54,10 @@ export class ClaseService
 
   addToCart(producto){
     CART.push(producto);
+  }
+
+  deleteFromCartById(index){
+    CART.splice(index, 1);
   }
 
 }

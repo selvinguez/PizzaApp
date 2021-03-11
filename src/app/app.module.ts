@@ -31,25 +31,24 @@ import { CrearProductoComponent} from './CrearProducto/crearProducto.components'
 import { ClaseRouteDeactivator } from './CrearProducto/desactivator.components';
 import { ProductoThumbnailComponent } from './productos/producto-thumnail.components';
 import { EditarProductoComponent } from './editarProducto/editarProducto.components';
+import {CheckoutComponent} from './checkout/checkout.component'
 import { ClaseListResolver } from './shared/claseresolver.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProductosComponent,
-    MenuComponent,
-    HomeComponent,
-    ProductosComponent,
-    LoginComponent,
-    TabGroupComponent,
-    CardComponent,
-    BadgeIconComponent,
-    GridMenu,
-   CrearProductoComponent,
-   ProductoThumbnailComponent,
-   EditarProductoComponent,
-   
-  
+  AppComponent,
+  ProductosComponent,
+  MenuComponent,
+  HomeComponent,
+  LoginComponent,
+  TabGroupComponent,
+  CardComponent,
+  BadgeIconComponent,
+  GridMenu,
+  CrearProductoComponent,
+  ProductoThumbnailComponent,
+  EditarProductoComponent,
+  CheckoutComponent
 
     
   ],
