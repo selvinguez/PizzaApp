@@ -25,6 +25,7 @@ export class CrearProductoComponent
     category : FormControl
     profileForm: FormGroup
     isDirty: boolean = true;
+    count:number
 
     constructor(private claseService: ClaseService,
       private route: ActivatedRoute, private router: Router) {
@@ -57,17 +58,26 @@ export class CrearProductoComponent
           category: this.category,
           
           isEnabled: this.isEnabled
-      })
+      }) 
       
+      this.claseService.getProductos().subscribe(data =>
+        this.count = data.length)
     }
+
+      
+    
     
 
     fnProduct(data){
-      data.id = this.claseService.getCountid()
-      this.claseService.addProducto(data);
+      data.id = this.count;
+      this.count = this.count +1
+      this.claseService.addProducto(data).subscribe(()=> {
+        console.log('request')
+     })  
       this.isDirty = false;
       console.log(data)
     }
+  
 
     cancel(){
       this.router.navigateByUrl('');
