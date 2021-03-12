@@ -14,7 +14,7 @@ export class loginService
         if(USERS.length===0){
             this.getInfo().subscribe(data =>
                 data.forEach(lol=>USERS.push(lol)))
-            }
+        }
 
     }
   
