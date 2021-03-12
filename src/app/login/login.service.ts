@@ -7,7 +7,6 @@ import { Observable, Subject } from "rxjs";
 
 
 
-
 @Injectable()
 export class loginService
 {
@@ -15,7 +14,7 @@ export class loginService
         if(USERS.length===0){
             this.getInfo().subscribe(data =>
                 data.forEach(lol=>USERS.push(lol)))
-            }
+        }
 
     }
   
@@ -31,17 +30,18 @@ export class loginService
      
         return USERS.find(c => String(c.Correo) === String(id) && String(c.password) === String(pass));
     }    
+    
     addUsers(data:userLogin ){
+        data.isadmin = 0;
         let options = {
             headers: new HttpHeaders({
                 "Content-Type": "application/json"
             })
         }
         if(!this.getByInfoId(data.Correo) && !(data.Correo === null) &&  !(data.password === null) ){
-            USERS.push(data) 
+            USERS.push(data);
             this.msg.success("Usuario " +data.Correo + " Creado")
-           data.isadmin = 0
-           return this.http.post('http://localhost:3000/usuarios',data,options);  
+            return this.http.post('http://localhost:3000/usuarios', data, options)
         }else if((data.Correo === null) && (data.password ===null)){
 
             this.msg.success("Llene los Campos por favor")
@@ -49,10 +49,11 @@ export class loginService
         else{
             this.msg.success("Usuario "+data.Correo +" ya exite o un campo esta vacio" )
         }
-        
+        return this.http.get('http://localhost:3000/usuarios')
     }
+
     getadmin(user:userLogin):boolean{
-        if(user.isadmin == 1){
+        if(user.isadmin){
             return true;
         }
         return false
@@ -63,7 +64,7 @@ export class loginService
     }
 
     setAdmin(user:userLogin){
-        if(user.isadmin ==1){
+        if(user.isadmin){
             isAdmin = true
         }else{
          isAdmin =false }

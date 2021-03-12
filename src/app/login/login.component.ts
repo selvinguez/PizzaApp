@@ -38,11 +38,9 @@ export class LoginComponent implements OnInit {
 
   fnsubmit(data){
     this.loginse.addUsers(data).subscribe(()=> {
-      console.log('request')
-   })  
-  } 
-    
-    
+      
+    })  
+  }
 
 loginu(data: userLogin):void{
 
