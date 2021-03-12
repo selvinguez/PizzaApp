@@ -37,11 +37,11 @@ export class LoginComponent implements OnInit {
   }
 
   fnsubmit(data){
-    
-     this.loginse.addUsers(data)
-    
-    
-}
+    this.loginse.addUsers(data).subscribe(()=> {
+      
+    })  
+  }
+
 loginu(data: userLogin):void{
 
   if(this.loginse.getByInfoVerificacion(data.Correo,data.password)){
