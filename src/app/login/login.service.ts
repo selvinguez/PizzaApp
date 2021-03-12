@@ -7,6 +7,7 @@ import { Observable, Subject } from "rxjs";
 
 
 
+
 @Injectable()
 export class loginService
 {
@@ -31,11 +32,16 @@ export class loginService
         return USERS.find(c => String(c.Correo) === String(id) && String(c.password) === String(pass));
     }    
     addUsers(data:userLogin ){
+        let options = {
+            headers: new HttpHeaders({
+                "Content-Type": "application/json"
+            })
+        }
         if(!this.getByInfoId(data.Correo) && !(data.Correo === null) &&  !(data.password === null) ){
             USERS.push(data) 
             this.msg.success("Usuario " +data.Correo + " Creado")
-          var lol =  " '{"+ "Correo"+":"+data.Correo+","+"password:"+data.password +", isadmin:"+data.isadmin+"}'"
-            return this.http.post('http://localhost:3000/usuarios',JSON.parse(lol)).subscribe();
+           data.isadmin = 0
+           return this.http.post('http://localhost:3000/usuarios',data,options);  
         }else if((data.Correo === null) && (data.password ===null)){
 
             this.msg.success("Llene los Campos por favor")
@@ -43,6 +49,7 @@ export class loginService
         else{
             this.msg.success("Usuario "+data.Correo +" ya exite o un campo esta vacio" )
         }
+        
     }
     getadmin(user:userLogin):boolean{
         if(user.isadmin == 1){
