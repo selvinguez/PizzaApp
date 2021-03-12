@@ -46,7 +46,6 @@ loginu(data: userLogin):void{
 
   if(this.loginse.getByInfoVerificacion(data.Correo,data.password)){
     const user =this.loginse.getByInfoId(data.Correo)
-    
       this.isLogged = true;
       this.loginse.setAdmin(user)
       this.loginse.setLogged()
@@ -55,6 +54,7 @@ loginu(data: userLogin):void{
     this.router.navigate(['/']);
     this.tos.success("Bienvenido " + data.Correo)
   }else{
+    console.log(this.loginse.getByInfoVerificacion(data.Correo,data.password))
     this.tos.success("Usuario no encontrado o datos no llenado completamente ")
   }
  
