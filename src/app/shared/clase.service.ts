@@ -18,7 +18,6 @@ export class ClaseService
         return this.http.get< Product[]>('http://localhost:3000/productos');
     }
     getProductosByCategory(category): Observable< Product[]>{
-      console.log(category)
       return this.http.get< Product[]>(`http://localhost:3000/category/`+category);
     }
 
@@ -35,7 +34,6 @@ export class ClaseService
      }
     
       toastr.success(`Producto ${producto.title} agregado`);
-      console.log(producto)
       return this.http.post('http://localhost:3000/productos',JSON.stringify(producto),options);
    
   }

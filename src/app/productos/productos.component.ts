@@ -37,7 +37,6 @@ export class ProductosComponent implements OnInit
   ngOnInit(){
      
       this.claseList =  this.route.snapshot.data['productos']
-      console.log(this.claseList)
   }
 
   

@@ -79,7 +79,6 @@ export class EditarProductoComponent
       this.product.isEnabled = data.isEnabled
       this.claseService.editProducto(this.product).subscribe();
       this.isDirty = false;
-      console.log(this.product)
     }
 
     cancel(){

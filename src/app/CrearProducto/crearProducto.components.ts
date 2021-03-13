@@ -72,10 +72,10 @@ export class CrearProductoComponent
       data.id = this.count;
       this.count = this.count +1
       this.claseService.addProducto(data).subscribe(()=> {
-        console.log('request')
+
      })  
       this.isDirty = false;
-      console.log(data)
+
     }
   
 

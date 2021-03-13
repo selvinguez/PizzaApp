@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
-
+import { ActivatedRoute, Router } from "@angular/router";
+import { Product } from '../shared/clase.module';
 import { ClaseService } from "../shared/clase.service";
 
 @Component({
@@ -9,17 +9,20 @@ import { ClaseService } from "../shared/clase.service";
 })
 export class TabGroupComponent {
   selectedTab:any = 0;
-  constructor(public claseService: ClaseService, private route: ActivatedRoute) {
+  focusIndex: number
+  constructor(public claseService: ClaseService, private route: ActivatedRoute, private router: Router) {
     
   }
   productos:any
   headers:any 
   toggleCategory($event){
-
-     const category = $event.tab.textLabel;
-      this.claseService.getProductosByCategory(category).subscribe(data => {
-        this.productos = data;
-      });
+    this.selectedTab = $event.index;
+    const category = $event.tab.textLabel;
+    const index = this.route.snapshot.params['index'];
+    this.claseService.getProductosByCategory(category).subscribe(data => {
+      this.productos = data;
+    });
+    this.router.navigate(['categories/'+this.selectedTab+'/'+category]);
     
   }
 
@@ -29,7 +32,6 @@ export class TabGroupComponent {
     this.claseService.getProductosByCategory(this.route.snapshot.params['category']).subscribe(data => {
       this.productos = data;
     });
-
   }
 }
 
