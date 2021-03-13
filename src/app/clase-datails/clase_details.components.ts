@@ -12,8 +12,8 @@ import { ClaseService } from "../shared/clase.service"
     <div class="text-center">
         <h1 style="background-color:powderblue;">{{product.title}} </h1>
         <img src= {{product.imageURL}} class="rounded" style = "width: '280px'">
-        
         <p>{{product.description}} </p>
+        <p>L.{{product.price}}</p>
         <button class="btn btn-dark" [routerLink]="['/categories', 1, 'Entradas']">Regresar</button>
     </div>
     `,
