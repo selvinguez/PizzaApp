@@ -10,7 +10,7 @@ import { ClaseService } from '../shared/clase.service';
      <app-menu></app-menu>
       <h1 style="margin-left: 20px">Orden</h1>
       <hr/>
-      <div class="col" style="overflow-y: scroll; height:400px;">
+      <div class="col" style="overflow-y: scroll; height:530px;">
         <div class="row" *ngFor="let product of productos; let i = index" data-index="#i" class="col-md-12" style="display: flex;align-items: center; width: 30%; margin-left: 16px;margin-bottom: 15px;">
             <div class="col-8" style="display: flex;align-items: center;">
               <img src="{{product.imageURL}}" style="width: 50px;height: 50px;border-radius: 25px;border: solid 2px;">
