@@ -11,7 +11,9 @@
   </mat-card-content>
   <mat-card-actions>
     
-    <button class="btn btn-primary" mat-button (click)="addToCart()" [routerLink]="['/categories', 1, 'Entradas']">ADD TO CART</button>
+    <button class="btn btn-primary" mat-button (click)="addToCart()" [routerLink]="['/categories', 1, 'Entradas']">Add to Cart</button>
+    <span>&nbsp;&nbsp;&nbsp;</span>
+    <span>&nbsp;&nbsp;&nbsp;</span>   
     <button class="btn btn-primary" mat-button  [routerLink]="['/Productos',product.id]">Detalles</button>
   </mat-card-actions>
 </mat-card>
