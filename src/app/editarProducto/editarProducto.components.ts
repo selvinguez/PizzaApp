@@ -1,6 +1,7 @@
 import { Component } from "@angular/core"
 import { FormControl, FormGroup, Validators } from "@angular/forms"
 import { ActivatedRoute, Router } from "@angular/router"
+
 import { ClaseService } from "../shared/clase.service"
 
 @Component({
@@ -17,7 +18,7 @@ import { ClaseService } from "../shared/clase.service"
 export class EditarProductoComponent
 {
    
-    Product
+    product:any
     isEnabled:FormControl
     title: FormControl
     description : FormControl
@@ -29,28 +30,29 @@ export class EditarProductoComponent
 
     constructor(private claseService: ClaseService,
       private route: ActivatedRoute, private router: Router) {
-        this.Product = this.claseService.getProductoById(+this.route.snapshot.params['myid'])
-        this.title = new FormControl(this.Product.title, [
+        this.product = this.route.snapshot.data['productos']
+      
+        this.title = new FormControl(this.product.title, [
           Validators.required, 
        
         ])
-        this.description = new FormControl(this.Product.description ,[
+        this.description = new FormControl(this.product.description ,[
           Validators.required, 
        
         ])
-        this.price = new FormControl(this.Product.price, [
+        this.price = new FormControl(this.product.price, [
           Validators.required, 
        
         ])
-        this.imageURL = new FormControl(this.Product.imageURL, [
+        this.imageURL = new FormControl(this.product.imageURL, [
           Validators.required, 
        
         ])
-        this.category = new FormControl(this.Product.category ,[
+        this.category = new FormControl(this.product.category ,[
           Validators.required, 
        
         ])
-        this.isEnabled = new FormControl(this.Product.isEnabled,[])
+        this.isEnabled = new FormControl(this.product.isEnabled,[])
         this.profileForm2 = new FormGroup({
           title: this.title,
           description: this.description,
@@ -59,18 +61,23 @@ export class EditarProductoComponent
           category: this.category,
           isEnabled :this.isEnabled
       })
+    }
+    ngOnInit(){
+      
+    this.product = this.route.snapshot.data['productos']
+      
+    console.log(this.product)
       
     }
-    
 
     fnProduct(data){
-      this.Product.title = data.title
-      this.Product.description = data.description
-      this.Product.price = data.price
-      this.Product.imageURL = data.imageURL
-      this.Product.category = data.category
-      this.Product.isEnabled = data.isEnabled
-      this.claseService.editProducto(this.Product);
+      this.product.title = data.title
+      this.product.description = data.description
+      this.product.price = data.price
+      this.product.imageURL = data.imageURL
+      this.product.category = data.category
+      this.product.isEnabled = data.isEnabled
+      this.claseService.editProducto(this.product).subscribe();
       this.isDirty = false;
     }
 

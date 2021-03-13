@@ -33,6 +33,8 @@ import { ProductoThumbnailComponent } from './productos/producto-thumnail.compon
 import { EditarProductoComponent } from './editarProducto/editarProducto.components';
 import {CheckoutComponent} from './checkout/checkout.component'
 import { ClaseListResolver } from './shared/claseresolver.service';
+import { ClaseListResolver2 } from './shared/claseresolver2.service';
+import { DetailProductoComponent } from './clase-datails/clase_details.components';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,7 @@ import { ClaseListResolver } from './shared/claseresolver.service';
   CrearProductoComponent,
   ProductoThumbnailComponent,
   EditarProductoComponent,
-  CheckoutComponent
+  CheckoutComponent,DetailProductoComponent
 
     
   ],
@@ -76,6 +78,7 @@ import { ClaseListResolver } from './shared/claseresolver.service';
     MenuComponent,
     ClaseRouteDeactivator,
     ClaseListResolver,
+    ClaseListResolver2,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
