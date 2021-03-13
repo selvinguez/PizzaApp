@@ -39,7 +39,7 @@
               <button *ngIf="isLogged" class="btn btn-outline-danger my-2 my-sm-0" type="submit" (click)="logOut()" style="margin-left: 10px;">
               <i class="fas fa-sign-out-alt fa-lg"></i> Cerrar Sesión</button>
           </div>
-          <div class="col-1" style="display: flex; align-items: center; justify-content: flex-end">
+          <div *ngIf="isLogged || isNormalLogged" class="col-1" style="display: flex; align-items: center; justify-content: flex-end">
             <a class="nav-link" routerLink="/checkout" >
               <mat-icon style="color: white;margin-top: 8px;margin-right: 10px;" [matBadge]="cartLength" matBadgeColor="warn">shopping_cart</mat-icon>
             </a>
