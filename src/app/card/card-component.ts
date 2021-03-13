@@ -17,6 +17,10 @@ export class CardComponent {
 
   addToCart(): void {
     this.ClaseService.addToCart(this.product);
-    this.router.navigate(['/'])
+    let currentUrl = this.router.url;
+    console.log(currentUrl)
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
   }
 }

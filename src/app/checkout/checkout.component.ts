@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ClaseService } from '../shared/clase.service';
 
 
@@ -38,7 +38,7 @@ export class CheckoutComponent implements OnInit
   productos:any
 
   constructor( private producto:ClaseService,
-      private route: ActivatedRoute) {
+      private route: ActivatedRoute, private router: Router) {
       
   }
 
@@ -50,6 +50,10 @@ export class CheckoutComponent implements OnInit
   deleteFromCart(index){
     this.productos = this.producto.deleteFromCartById(index);
     this.productos = this.producto.getCart();
+    let currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
   }
 
   
