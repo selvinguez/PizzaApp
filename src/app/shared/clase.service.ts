@@ -25,6 +25,10 @@ export class ClaseService
       
       return this.http.get<Product[]>('http://localhost:3000/productos/'+codigo);
     }
+    getReviewsById(codigo: number): Observable<any[]>{
+      
+      return this.http.get<any[]>('http://localhost:3000/reviews/'+codigo);
+    }
 
   addProducto(producto){
     let options = {
@@ -35,6 +39,17 @@ export class ClaseService
     
       toastr.success(`Producto ${producto.title} agregado`);
       return this.http.post('http://localhost:3000/productos',JSON.stringify(producto),options);
+   
+  }
+  addReview(producto){
+    let options = {
+      headers: new HttpHeaders({
+          "Content-Type": "application/json"
+      })
+     }
+    
+      toastr.success(`Comentario de ${producto.Persona} agregado`);
+      return this.http.post('http://localhost:3000/reviews',JSON.stringify(producto),options);
    
   }
 

@@ -10,13 +10,14 @@ import { TabGroupComponent } from './tab/tab.component';
 import {CheckoutComponent} from './checkout/checkout.component'
 import { ClaseListResolver } from './shared/claseresolver.service';
 import { ClaseListResolver2 } from './shared/claseresolver2.service';
+import { ClaseListResolver3 } from './shared/claseresolver3.service';
 import { DetailProductoComponent } from './clase-datails/clase_details.components';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'Productos/:myid',component: DetailProductoComponent,resolve: {productos: ClaseListResolver2}},
+  {path: 'login', component: LoginComponent},//reviews
+  {path: 'Productos/:myid',component: DetailProductoComponent,resolve: {productos: ClaseListResolver2,reviews: ClaseListResolver3}},
   {path: 'CrearProductos', component: CrearProductoComponent,canDeactivate: [ClaseRouteDeactivator]},
   {path: 'EditarProductos/:myid',component:EditarProductoComponent,canDeactivate: [ClaseRouteDeactivator],resolve: {productos: ClaseListResolver2}},
   {path: 'lista', component: ProductosComponent, resolve: {productos: ClaseListResolver}},
