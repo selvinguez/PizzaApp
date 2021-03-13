@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import { Product } from '../shared/clase.module';
+
 import { ClaseService } from "../shared/clase.service";
 
 @Component({
