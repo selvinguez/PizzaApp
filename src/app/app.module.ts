@@ -35,6 +35,7 @@ import {CheckoutComponent} from './checkout/checkout.component'
 import { ClaseListResolver } from './shared/claseresolver.service';
 import { ClaseListResolver2 } from './shared/claseresolver2.service';
 import { DetailProductoComponent } from './clase-datails/clase_details.components';
+import { ClaseListResolver3 } from './shared/claseresolver3.service';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { DetailProductoComponent } from './clase-datails/clase_details.component
     ClaseRouteDeactivator,
     ClaseListResolver,
     ClaseListResolver2,
+    ClaseListResolver3,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
