@@ -26,7 +26,7 @@ import { ToasterService } from '../toaster.service';
               <button class="btn btn-success" (click)="addFromCart(product)" style="margin-right: 20px">
                 +
               </button>
-              <button class="btn btn-danger" (click)="deleteFromCart(i)" >X</button>
+              <button class="btn btn-danger" (click)="deleteFromCart(product, i)" >X</button>
             </div>
         </div>
         <div *ngIf="productos.length !== 0"><button class="btn btn-success" style="margin: 0% 12%;width: 8%;">Pago</button></div>
@@ -53,14 +53,14 @@ export class CheckoutComponent implements OnInit
       this.productos = this.producto.getCart();
   }
 
-  deleteFromCart(index){
+  deleteFromCart(product, index){
     this.productos = this.producto.deleteFromCartById(index);
     this.productos = this.producto.getCart();
     let currentUrl = this.router.url;
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate([currentUrl]);
-    this.tos.error(`Producto eliminado del carrito`)
+    this.tos.error(`${product.title} eliminado del carrito`)
   }
 
   addFromCart(product){
