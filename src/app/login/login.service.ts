@@ -44,10 +44,10 @@ export class loginService
             return this.http.post('http://localhost:3000/usuarios', data, options)
         }else if((data.Correo === null) && (data.password ===null)){
 
-            this.msg.success("Llene los Campos por favor")
+            this.msg.warning("Llene los Campos por favor")
         }
         else{
-            this.msg.success("Usuario "+data.Correo +" ya exite o un campo esta vacio" )
+            this.msg.error("Usuario "+data.Correo +" ya existe o un campo esta vacio" )
         }
         return this.http.get('http://localhost:3000/usuarios')
     }

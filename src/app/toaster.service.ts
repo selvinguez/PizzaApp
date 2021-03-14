@@ -8,4 +8,14 @@ export class ToasterService{
         
     }
 
+    error(message: string,title?: string){
+        toastr.error(message,title);
+        
+    }
+
+    warning(message: string,title?: string){
+        toastr.warning(message,title);
+        
+    }
+
 }

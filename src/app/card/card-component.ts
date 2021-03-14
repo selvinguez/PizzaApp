@@ -13,7 +13,7 @@ import { ToasterService } from '../toaster.service';
 })
 export class CardComponent {
   @Input() product:any
-  constructor(public ClaseService:ClaseService,private router: Router, private tos : ToasterService,) {
+  constructor(public ClaseService:ClaseService,private router: Router, private tos : ToasterService) {
   }
   
   addToCart(): void {

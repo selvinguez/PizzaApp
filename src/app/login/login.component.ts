@@ -55,7 +55,7 @@ loginu(data: userLogin):void{
     this.tos.success("Bienvenido " + data.Correo)
   }else{
     console.log(this.loginse.getByInfoVerificacion(data.Correo,data.password))
-    this.tos.success("Usuario no encontrado o datos no llenado completamente ")
+    this.tos.error("Usuario no encontrado o datos no llenado completamente ")
   }
  
 }
