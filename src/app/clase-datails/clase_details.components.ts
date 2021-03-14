@@ -3,17 +3,19 @@ import { Component } from "@angular/core"
 import { FormControl, FormGroup, Validators } from "@angular/forms"
 import { ActivatedRoute, Router } from "@angular/router"
 import { ClaseService } from "../shared/clase.service"
+import { ToasterService } from '../toaster.service';
 
 @Component({
   
     template: `
     <app-menu></app-menu>
     
-    <div class="text-center">
+    <div class="text-center" style="margin-bottom: 30px;">
         <h1 class="list-group-item active">{{product.title}} </h1>
         <img src= {{product.imageURL}} class="rounded" style = "width: '280px'">
         <p>{{product.description}} </p>
-        <p>L.{{product.price}}</p>
+        <button class="btn btn-light" disabled>L.{{product.price}}</button>
+        <button class="btn btn-primary" (click)="addToCart(product)" >Agregar al carrito</button>
     </div>
     <div class="text-center">
         <h2>Reseñas </h2>
@@ -63,7 +65,7 @@ export class DetailProductoComponent
     review:any
     profileForm: FormGroup
     constructor(private claseService: ClaseService,
-      private route: ActivatedRoute, private router: Router) {
+      private route: ActivatedRoute, private router: Router, private tos: ToasterService) {
   
         this.product = this.route.snapshot.data['productos']
         
@@ -88,9 +90,20 @@ export class DetailProductoComponent
   
        })  
        console.log(data)
-      }
-      ngOnInit() {
-        this.review = this.route.snapshot.data['reviews']
-      }
+    }
+
+    addToCart(product){
+    this.claseService.addToCart(this.product);
+    const {title} = this.product;
+    let currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
+    this.tos.success(`${title} agregado al carrito`);
+    }
+
+    ngOnInit() {
+      this.review = this.route.snapshot.data['reviews']
+    }
 
 }

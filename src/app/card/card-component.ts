@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import { Router } from '@angular/router';
 import { ClaseService } from "../shared/clase.service";
+import { ToasterService } from '../toaster.service';
 
 /**
  * @title Card with multiple sections
@@ -12,15 +13,16 @@ import { ClaseService } from "../shared/clase.service";
 })
 export class CardComponent {
   @Input() product:any
-  constructor(public ClaseService:ClaseService,private router: Router) {
+  constructor(public ClaseService:ClaseService,private router: Router, private tos : ToasterService) {
   }
-
+  
   addToCart(): void {
     this.ClaseService.addToCart(this.product);
+    const {title} = this.product;
     let currentUrl = this.router.url;
-    console.log(currentUrl)
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate([currentUrl]);
+    this.tos.success(`${title} agregado al carrito`);
   }
 }
