@@ -84,10 +84,13 @@ export class ClaseService
   deleteFromCartById(index){
     CART.splice(index, 1);
   }
+  emptyCART(){
+    CART = []
+  }
 
 }
 
-const CART= [
+let CART= [
   
 ]
 

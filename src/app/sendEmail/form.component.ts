@@ -1,7 +1,9 @@
+import { stringify } from "@angular/compiler/src/util";
 import { Component } from "@angular/core"
 import { FormControl, FormGroup } from "@angular/forms"
 import { EmailService } from '../email.service';
-
+import { ClaseService } from "../shared/clase.service";
+declare let toastr;
 @Component({
   
     templateUrl: './form.component.html',
@@ -17,34 +19,41 @@ export class EmailFormComponent
 {
     emailForm: FormGroup
     name:FormControl
-    email: FormControl
+    direccion: FormControl
+    telefono: FormControl
     message : FormControl
 
-    constructor(private _emailService: EmailService) {
+    constructor(private _emailService: EmailService, private producto:ClaseService) {
+      
+
       this.name = new FormControl("")
-      this.email = new FormControl( "",)
+      this.direccion = new FormControl( "")
+      this.telefono = new FormControl("")
       this.message = new FormControl("")
+
       this.emailForm = new FormGroup({
         name: this.name,
-        email: this.email,
-        message: this.message,
+        telefono: this.telefono,
+        message: this.message ,
+        direccion:this.direccion
       }) 
         
     }
 
     fnSubmit(form) {
-      const {name, email, message} = form;
-    
-      this._emailService.sendEmail({
-        from: 'Mailgun Sandbox <postmaster@sandbox1b11d62db6f0460288aa213b4212562a.mailgun.org>',
-        to: email,
-        name: name,
-        text: message,
+      const {name, message,telefono,direccion} = form;
+      
+      this._emailService.sendEmail2({
+        subject: name,
+        text: "orden: "+JSON.stringify(this.producto.getCart())+"\nmesaje del cliente: "+message
+        +"\nTelefono: "+telefono+"\n Direccion: "+direccion,
       })
       .subscribe(
         () => {},
         err => console.log(err)
       );
+      this.producto.emptyCART()
+      toastr.success(`Orden Enviada`);
     } 
-
+    
 }
