@@ -58,7 +58,7 @@ export class CrearProductoComponent
           category: this.category,
           
           isEnabled: this.isEnabled
-      }) 
+        }) 
       
       this.claseService.getProductos().subscribe(data =>
         this.count = data.length)
