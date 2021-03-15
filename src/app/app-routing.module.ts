@@ -12,6 +12,7 @@ import { ClaseListResolver } from './shared/claseresolver.service';
 import { ClaseListResolver2 } from './shared/claseresolver2.service';
 import { ClaseListResolver3 } from './shared/claseresolver3.service';
 import { DetailProductoComponent } from './clase-datails/clase_details.components';
+import {EmailFormComponent} from './sendEmail/form.component'
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'EditarProductos/:myid',component:EditarProductoComponent,canDeactivate: [ClaseRouteDeactivator],resolve: {productos: ClaseListResolver2}},
   {path: 'lista', component: ProductosComponent, resolve: {productos: ClaseListResolver}},
   {path: 'categories/:index/:category', component: TabGroupComponent, resolve: {productos: ClaseListResolver}},
+  {path: 'sendMail', component: EmailFormComponent},
 
   {path: 'checkout', component: CheckoutComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'}
