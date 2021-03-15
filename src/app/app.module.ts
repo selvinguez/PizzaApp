@@ -36,6 +36,8 @@ import { ClaseListResolver } from './shared/claseresolver.service';
 import { ClaseListResolver2 } from './shared/claseresolver2.service';
 import { DetailProductoComponent } from './clase-datails/clase_details.components';
 import { ClaseListResolver3 } from './shared/claseresolver3.service';
+import { EmailService } from '../app/email.service';
+import {EmailFormComponent} from './sendEmail/form.component'
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { ClaseListResolver3 } from './shared/claseresolver3.service';
   CrearProductoComponent,
   ProductoThumbnailComponent,
   EditarProductoComponent,
-  CheckoutComponent,DetailProductoComponent
+  CheckoutComponent,
+  DetailProductoComponent,
+  EmailFormComponent
 
     
   ],
@@ -81,6 +85,7 @@ import { ClaseListResolver3 } from './shared/claseresolver3.service';
     ClaseListResolver,
     ClaseListResolver2,
     ClaseListResolver3,
+    EmailService,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
