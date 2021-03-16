@@ -29,9 +29,11 @@ import { ToasterService } from '../toaster.service';
               <button class="btn btn-danger" (click)="deleteFromCart(product, i)" >X</button>
             </div>
         </div>
-        <div *ngIf="productos.length !== 0"><button class="btn btn-success" style="margin: 0% 12%;width: 8%;">Pago</button></div>
+        <p *ngIf="productos.length !== 0">  Total a pagar {{price}} </p>
+        <div *ngIf="productos.length !== 0"><button class="btn btn-success" style="margin: 0% 12%;width: 8%;"  [routerLink]="['/sendMail']">Pago</button></div>
         <div *ngIf="productos.length === 0"><button class="btn btn-warning" style="margin: 0% 12%;width: 8%; color:white" [routerLink]="['/categories', 0, 'Boxes']">Ver Menu</button></div>
-    </div>       
+    </div>      
+    
   `,
   styles: [`
       .pad-left{
@@ -42,6 +44,7 @@ import { ToasterService } from '../toaster.service';
 export class CheckoutComponent implements OnInit 
 {
   productos:any
+  price:number=0
 
   constructor( private producto:ClaseService,
       private route: ActivatedRoute, private router: Router,  private tos : ToasterService) {
@@ -51,6 +54,10 @@ export class CheckoutComponent implements OnInit
   //hooks
   ngOnInit(){
       this.productos = this.producto.getCart();
+      this.producto.getCart().map(data=>{
+        this.price = this.price + data.price
+        
+      })
   }
 
   deleteFromCart(product, index){
