@@ -1,29 +1,35 @@
 <app-menu></app-menu>
-<div class="col-md-6 " >
-  <div class="cointener">
-  <div class="row" >
+<div class="container"><h1 style="color:black; text-align: center;">Confirmación de Pago</h1></div>
+<div class="container" style="width: 55%;">
+  <div class="row">
+    <div class="col">
       <form [formGroup]="emailForm" (ngSubmit)="fnSubmit(emailForm.value)">
-          <div class="form-group">
-            <label for="name">Nombre:</label>
-            <input formControlName="name" name="name"  id="name" type="text" class="form-control" placeholder="nombre..." required />
-          </div>
-
-          <div class="form-group">
-              <label for="direccion">Email:</label>
-              <input formControlName="direccion" name="direccion"  id="direccion" type="text" class="form-control" placeholder="Direccion..." required />
-          </div>
-          <div class="form-group">
-            <label for="telefono">Email:</label>
-            <input formControlName="telefono" name="telefono"  id="telefono" type="text" class="form-control" placeholder="telefono ..." required />
+        <div class="form-group" style="margin-bottom: 18px;">
+          <label for="name">Nombre:</label>
+          <input formControlName="name" name="name"  id="name" type="text" class="form-control" placeholder="nombre..." required />
         </div>
 
-          <div class="form-group">
-            <label for="message">Mensaje:</label>
-            <input formControlName="message" name="message"  id="message" type="text" class="form-control" placeholder="Tu mensaje Personalizado" required />
-          </div>         
-      </form>
-      <span>&nbsp;&nbsp;&nbsp;</span>
-      <button class="btn btn-secondary" type="submit" (click)="fnSubmit(emailForm.value)"  [routerLink]="['/categories', 1, 'Entradas']">Enviar</button>
+        <div class="form-group" style="margin-bottom: 18px;">
+            <label for="direccion">Email:</label>
+            <input formControlName="direccion" name="direccion"  id="direccion" type="text" class="form-control" placeholder="Direccion..." required />
+        </div>
+        <div class="form-group" style="margin-bottom: 18px;">
+          <label for="telefono">Email:</label>
+          <input formControlName="telefono" name="telefono"  id="telefono" type="text" class="form-control" placeholder="telefono ..." required />
+      </div>
+
+        <div class="form-group" style="margin-bottom: 18px;">
+          <label for="message">Mensaje:</label>
+          <input formControlName="message" name="message"  id="message" type="text" class="form-control" placeholder="Tu mensaje Personalizado" required />
+        </div>         
+    </form>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-2">
+          <button class="btn btn-secondary" type="submit" (click)="fnSubmit(emailForm.value)"  [routerLink]="['/categories', 1, 'Entradas']">Enviar</button>
+        </div>
+      </div>
+    </div>
+    </div>
   </div>
-</div>
 </div>
