@@ -29,7 +29,7 @@ import { ToasterService } from '../toaster.service';
               <button class="btn btn-danger" (click)="deleteFromCart(product, i)" >X</button>
             </div>
         </div>
-        <p *ngIf="productos.length !== 0">  Total a pagar {{price}} </p>
+        <h1 *ngIf="productos.length !== 0" style="margin: 0px 0px 15px 5px;width: 36%;padding: 17px 15px;background-color: antiquewhite;">  Total a pagar L.{{price}} </h1>
         <div *ngIf="productos.length !== 0"><button class="btn btn-success" style="margin: 0% 12%;width: 8%;"  [routerLink]="['/sendMail']">Pago</button></div>
         <div *ngIf="productos.length === 0"><button class="btn btn-warning" style="margin: 0% 12%;width: 8%; color:white" [routerLink]="['/categories', 0, 'Boxes']">Ver Menu</button></div>
     </div>      
