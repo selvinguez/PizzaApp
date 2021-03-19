@@ -13,7 +13,7 @@ import { ToasterService } from '../toaster.service';
     <div class="text-center" style="margin-bottom: 30px;">
         <h1 class="list-group-item active">{{product.title}} </h1>
         <img src= {{product.imageURL}} class="rounded" style = "width: '280px'">
-        <p>{{product.description}} </p>
+        <h3 style="margin-top: 15px">{{product.description}} </h3>
         <button class="btn btn-light" disabled>L.{{product.price}}</button>
         <button class="btn btn-primary" (click)="addToCart(product)" >Agregar al carrito</button>
     </div>
@@ -85,11 +85,17 @@ export class DetailProductoComponent
         }) 
     }
     fnReview(data){
+      if(data.Persona && data.reviews){
         data.idProducto = this.product.id
         this.claseService.addReview(data).subscribe(()=> {
-  
-       })  
-       console.log(data)
+
+        })  
+        let currentUrl = this.router.url;
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate([currentUrl]);
+      }
+        
     }
 
     addToCart(product){
